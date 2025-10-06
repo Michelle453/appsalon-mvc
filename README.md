@@ -9,7 +9,7 @@ Administrators can **manage services**, **update or delete bookings**, and **vie
 ---
 
 ## 🌐 Live Demo
-🔗 **View the project:** [Your Deployment URL Here](https://appsalon-mvc-ingmichelleberrio.nue.dom.my.id/)
+🔗 **View the project:** [Appsalon](https://appsalon-mvc-ingmichelleberrio.nue.dom.my.id/)
 
 ---
 
