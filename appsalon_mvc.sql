@@ -16,7 +16,7 @@ CREATE TABLE `citas` (
   PRIMARY KEY (`id`),
   KEY `usuarioId_idx` (`usuarioId`),
   CONSTRAINT `citas_ibfk_1` FOREIGN KEY (`usuarioId`) REFERENCES `usuarios` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
 
 DROP TABLE IF EXISTS `citasservicios`;
 CREATE TABLE `citasservicios` (
@@ -28,7 +28,7 @@ CREATE TABLE `citasservicios` (
   KEY `servicioId_idx` (`servicioId`),
   CONSTRAINT `citasservicios_ibfk_1` FOREIGN KEY (`citaId`) REFERENCES `citas` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
   CONSTRAINT `citasservicios_ibfk_2` FOREIGN KEY (`servicioId`) REFERENCES `servicios` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 
 DROP TABLE IF EXISTS `servicios`;
 CREATE TABLE `servicios` (
@@ -36,7 +36,7 @@ CREATE TABLE `servicios` (
   `nombre` varchar(60) DEFAULT NULL,
   `precio` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
 
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
@@ -53,17 +53,23 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 
 INSERT INTO `citas` (`id`, `fecha`, `hora`, `usuarioId`) VALUES
-(3, '2025-10-08', '15:12:00', 5),
-(4, '2025-10-21', '16:36:00', 5),
-(5, '2025-10-29', '17:37:00', 5),
-(6, '2025-10-14', '15:41:00', 5),
 (7, '2025-10-22', '17:25:00', 5),
-(8, '2025-10-13', '10:46:00', 5);
+(8, '2025-10-13', '10:46:00', 5),
+(10, '2025-10-14', '10:29:00', 5),
+(12, '2025-10-21', '11:46:00', 5),
+(13, '2025-10-15', '14:55:00', 5),
+(14, '2025-10-22', '14:58:00', 5);
 INSERT INTO `citasservicios` (`id`, `citaId`, `servicioId`) VALUES
 (1, 7, 1),
 (2, 7, 2),
 (3, 8, 1),
-(4, 8, 6);
+(4, 8, 6),
+(5, 10, 5),
+(6, NULL, 1),
+(7, 12, 1),
+(8, 12, 3),
+(9, 13, 1),
+(10, 14, 2);
 INSERT INTO `servicios` (`id`, `nombre`, `precio`) VALUES
 (1, 'Corte de Cabello Mujer', '90.00'),
 (2, 'Corte de Cabello Hombre', '80.00'),
@@ -75,14 +81,10 @@ INSERT INTO `servicios` (`id`, `nombre`, `precio`) VALUES
 (8, 'Tinte Mujer', '300.00'),
 (9, 'Uñas', '400.00'),
 (10, 'Lavado de Cabello', '50.00'),
-(11, 'Tratamiento Capilar', '150.00');
+(11, 'Tratamiento Capilar', '150.00'),
+(13, ' Tinte para Cabello', '75.00');
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `contrasena`, `telefono`, `admin`, `confirmado`, `token`) VALUES
-(1, 'Michelle', 'Berrio ', 'correo@correo.com', '12345678', '123456789', NULL, 1, NULL),
-(2, ' sfsdf', 'f', 'dsfdsf@sfsdfsdf', '$2y$10$Hp1K0.W1a9DeBsXVwAt9i.upjbYb7ZJ9.gZ9E8NpYXA5ywRc/GL2i', '1234567891', 0, 0, ''),
-(3, ' usuario', 'nuevo', 'correo2@correo.com', '$2y$10$AOgCkfA436Nh1LyjnIngd.vT3ZmiJ.TGG1c9DZo9RNei3YJholLHi', '1234567891', 0, 0, ''),
-(4, ' usuario', 'nuevo', 'dsfdsf@sfsdfsdfzxz', '$2y$10$sZ3OMBNTyvBKW40fR5MjaepqUlBJD/ysbcFTm81z/FUsyk.9zgt/a', '1234567891', 0, 1, ''),
 (5, ' prueba', 'nuevo', 'prueba2@prueba.com', '$2y$10$vm1FEtdl4iqd4SyatL3XC.NVLXCpnNTPK8g3CVJUoX1/qzVv8BHUS', '1234567891', 0, 1, ''),
-(6, ' usuario', 'nuevo', 'jiric98510@linxues.com', '$2y$10$qDLWFiU4nP7x4QajpKQl7OBI92U.u0pYiAXN5nhJbOroMa5ht0Q32', '1234567891', 0, 1, ''),
 (7, ' Admin', 'Admin', 'admin@admin.com', '$2y$10$dKcKZi7ckGxmG.cOQdQW5.2Om9qKQIPQakQkftMyjhMHF4kw3.TUa', '1234567891', 1, 1, '');
 
 
