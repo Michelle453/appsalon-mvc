@@ -117,12 +117,12 @@ function paginaSiguiente(){
 async function consultarAPI(){
 
     try{
-        const url = `${location.origin}/api/servicios`;
+        const url = '/api/servicios';
         const resultado = await fetch(url);
         const servicios = await resultado.json();
         mostrarServicios(servicios);
     }catch(error){
-
+        console.log(error);
     }
 }
 
@@ -298,8 +298,8 @@ async function reservarCita(){
     // console.log([...datos]);
 
     try {
-        // priticion hacia la api
-        const url = `${location.origin}/api/servicios`;
+        // peticion hacia la api
+        const url = '/api/citas';
 
         const respuesta = await fetch(url, {
             method: 'POST', 
@@ -307,7 +307,7 @@ async function reservarCita(){
         });
 
         const resultado = await respuesta.json();
-        
+        console.log(resultado);
         if(resultado.resultado){
             Swal.fire({
             icon: "success",
@@ -322,6 +322,7 @@ async function reservarCita(){
             });
         }
     } catch (error) {
+        console.log(error)
         Swal.fire({
         icon: "error",
         title: "Error",

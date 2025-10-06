@@ -29,7 +29,7 @@ class APIController{
             $citaServicio = new CitaServicio($args);
             $citaServicio->guardar();
         };
-
+      
         echo json_encode(['resultado'=>$resultado]);
     }
 

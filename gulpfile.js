@@ -74,4 +74,4 @@ export function dev() {
 }
 
 export default series( js, css, imagenes, dev );
-exports.build = parallel(js, css, imagenes);
+//exports.build = parallel(js, css, imagenes);
